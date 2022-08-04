@@ -23,7 +23,6 @@ class App extends Component {
     };
 
     const onSave = ({ target }) => {
-      console.log(inputRef.current.value);
       let res = this.state.data.map((value) =>
         value.id === this.state.selected?.id
           ? { ...value, name: inputRef.current.value }
@@ -42,7 +41,6 @@ class App extends Component {
           id: Date.now(),
           name: e.target.value,
         };
-        console.log(obj);
         this.setState({ data: this.state.data.concat(obj) });
         e.target.value = "";
       }
@@ -53,7 +51,6 @@ class App extends Component {
     };
 
     const remove = (id) => {
-      console.log(this.state.data);
       let removedData = this.state.data.filter((item) => item.id !== id);
       this.setState({ data: removedData, selected: null });
     };
