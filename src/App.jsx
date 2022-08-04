@@ -52,6 +52,12 @@ class App extends Component {
       this.setState({ newName: target.value });
     };
 
+    const remove = (id) => {
+      console.log(this.state.data);
+      let removedData = this.state.data.filter((item) => item.id !== id);
+      this.setState({ data: removedData, selected: null });
+    };
+
     return (
       <div className="App flex items-center justify-center flex-col mt-6">
         <h1 className="text-3xl font-bold underline">CRUD</h1>
@@ -94,7 +100,12 @@ class App extends Component {
                       >
                         Edit
                       </button>
-                      <button className="border border-red-700 px-2">x</button>
+                      <button
+                        onClick={() => remove(value.id)}
+                        className="border border-red-700 px-2"
+                      >
+                        x
+                      </button>
                     </>
                   )}
                 </div>
